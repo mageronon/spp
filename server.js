@@ -52,6 +52,24 @@ app.route( "/Account" )
   res.sendFile(__dirname + '/front/account.html');
 });
 
+app.route( "/AddHotel" )
+  .get(sessionAdminChecker, (req, res) => {
+  //.get((req, res) => {
+  res.sendFile(__dirname + '/front/addHotel.html');
+});
+
+app.route( "/Hotel" )
+  .get((req, res) => {
+  //.get((req, res) => {
+  res.sendFile(__dirname + '/front/Hotel.html');
+});
+
+app.route( "/CreateManeger" )
+  .get(sessionAdminChecker, (req, res) => {
+  //.get((req, res) => {
+  res.sendFile(__dirname + '/front/CreateManeger.html');
+});
+
 app.route( "/About" )
   .get((req, res) => {
   res.sendFile(__dirname + '/front/about.html');

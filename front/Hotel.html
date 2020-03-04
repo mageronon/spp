@@ -15,19 +15,19 @@
 
     <div class="row" style="margin-top: 260px;">
       <div class="col-md-3" ></div>
-      <div id="HotelList" class="col-md-6" >
-        <div class="" v-for="hotel in hotels">
+      <div id="Hotelitem" class="col-md-6" >
+        <div class="">
           <span>{{hotel.name}}</span><br>
           <span>{{hotel.adress}}</span><br>
           <span>{{hotel.first_name}}</span>
           <span>{{hotel.last_name}}</span><br>
           <span>{{hotel.phone_number}}</span><br>
           <span>{{hotel.email}}</span><br>
-          <a v-bind:href="'Hotel?hotelId=' + hotel.id" class="btn btn-primary" name="button">View</a>
+          <button v-if="user.admin == true || user.manager == true"  class="btn btn-primary" name="button">Edit</button>
         </div>
       </div>
     </div>
 
-    <script src="./js/index.js"></script>
+    <script src="./js/hotel.js"></script>
   </body>
 </html>

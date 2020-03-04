@@ -8,26 +8,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script type="text/javascript" src="./js/JQuery.js"></script>
+
     <title></title>
   </head>
-  <body>
-    <h1>HI</h1>
+  <body class="row" style="margin-top: 260px;" >
+    <div class="col-md-3" ></div>
+    <div class="col-md-6" id="appCreateManeger">
 
-    <div class="row" style="margin-top: 260px;">
-      <div class="col-md-3" ></div>
-      <div id="HotelList" class="col-md-6" >
-        <div class="" v-for="hotel in hotels">
-          <span>{{hotel.name}}</span><br>
-          <span>{{hotel.adress}}</span><br>
-          <span>{{hotel.first_name}}</span>
-          <span>{{hotel.last_name}}</span><br>
-          <span>{{hotel.phone_number}}</span><br>
-          <span>{{hotel.email}}</span><br>
-          <a v-bind:href="'Hotel?hotelId=' + hotel.id" class="btn btn-primary" name="button">View</a>
-        </div>
-      </div>
     </div>
-
-    <script src="./js/index.js"></script>
+    <script src="./js/CreateManeger.js"></script>
   </body>
 </html>
