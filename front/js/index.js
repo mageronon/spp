@@ -1,4 +1,5 @@
 var appHotelList;
+var app;
 
 window.onload = function () {
   $.ajax({
@@ -13,17 +14,23 @@ window.onload = function () {
              user: {}
            }
          });
+         app = new Vue({
+           el: '#app',
+           data: {
+             user: {}
+           }
+         });
          $.ajax({
             url: "/getUserInfo",
             type: "GET",
             success: function (data1) {
-              console.log(data1);
-                console.log("HERE");
               appHotelList.user = data1;
+              app.user = data1;
+                console.log(app.user);
+
             },
             error: function (error) {
               console.log(error);
-                console.log("HERE22");
             }
           });
        }

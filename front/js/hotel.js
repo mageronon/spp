@@ -1,4 +1,5 @@
 var appHotelItem;
+var app;
 var idHotel = - 1;
 
 window.onload = function () {
@@ -16,11 +17,18 @@ window.onload = function () {
              rooms: data.rooms
            }
          });
+         app = new Vue({
+           el: '#app',
+           data: {
+             user: {}
+           }
+         });
          $.ajax({
             url: "/getUserInfo",
             type: "GET",
             success: function (data1) {
               appHotelItem.user = data1;
+              app.user = data1;
             },
             error: function (error) {
               console.log(error);
