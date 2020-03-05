@@ -17,7 +17,8 @@ window.onload = function () {
          app = new Vue({
            el: '#app',
            data: {
-             user: {}
+             user: {},
+             here: false
            }
          });
          $.ajax({
@@ -27,10 +28,11 @@ window.onload = function () {
               appHotelList.user = data1;
               app.user = data1;
                 console.log(app.user);
-
+                app.here = true;
             },
             error: function (error) {
               console.log(error);
+              app.here = false;
             }
           });
        }

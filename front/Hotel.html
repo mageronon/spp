@@ -26,7 +26,7 @@
           </li>
         </ul>
 
-        <div class="" v-if="user === '{}'">
+        <div class="" v-if="!here">
           <button class="btn btn-outline-success my-2 my-sm-0"  onclick="window.location.href='/Login'"  type="submit" style="margin-right: 10px;">Login</button>
           <button class="btn btn btn-secondary my-2 my-sm-0" onclick="window.location.href='/Register'"  type="submit">Register</button>
         </div>
@@ -47,6 +47,35 @@
           <span>{{hotel.phone_number}}</span><br>
           <span>{{hotel.email}}</span><br>
           <button v-if="user.admin == true || user.manager == true"  class="btn btn-primary" name="button">Edit</button>
+          <div class="">
+            <h1>LIST OF ROOMS</h1>
+            {{rooms}}
+            <div class="form-check-label" v-for="room in rooms">
+              <input type="radio" id="room.id"
+                name="room.id" v-bind:value="room.id">
+              <label for="room.id">number:{{room.number}} - beds:{{room.beds}} - price:{{room.price_by_one_beds}} </label>
+           </div>
+          </div>
+          <div v-if="user.manager == true" class="">
+            <h1>ADD ROOM</h1>
+            <form action="addroomToHotel" method="post">
+              <input type="hidden" v-bind:value="1" class="form-control" id="inputFloor" name="inputFloor">
+              <div class="form-group">
+                <label for="inputNumberRoom">Room</label>
+                <input type="number" v-bind:min="rooms.length" class="form-control" id="inputNumberRoom" name="inputNumberRoom">
+              </div>
+              <div class="form-group">
+                <label for="inputNumberOfBeds">Beds in room</label>
+                <input type="number" min="1" max="10" class="form-control" id="inputNumberOfBeds" name="inputNumberOfBeds">
+              </div>
+              <div class="form-group">
+                <label for="inputPriceOfBeds">Price by one beds</label>
+                <input type="number" min="1" class="form-control" id="inputPriceOfBeds" name="inputPriceOfBeds">
+              </div>
+              <input type="hidden" v-bind:value="hotel.id" id="inputhotelid" name="inputhotelid">
+              <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

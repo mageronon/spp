@@ -10,7 +10,8 @@ window.onload = function () {
          app = new Vue({
            el: '#app',
            data: {
-             user: data
+             user: data,
+             here: true
            }
          });
 

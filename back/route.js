@@ -25,4 +25,10 @@ module.exports = function(app) {
 
   app.route( "/Hotel/:hotelId")
   .get( hotel_controller.getHotel);
+
+  app.route( "/getHotelInfoByManager/:userId")
+  .get( hotel_controller.getHotelInfoByManager);
+
+  app.route( "/addroomToHotel")
+  .post( hotel_controller.addroomToHotel);
 }
