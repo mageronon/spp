@@ -1,85 +1,105 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script type="text/javascript" src="./js/JQuery.js"></script>
     <style media="screen">
-      [v-cloak] { display: none; }
+        [v-cloak] {
+            display: none;
+        }
     </style>
     <title></title>
-  </head>
-  <body>
-    <nav v-cloak id="app" class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="Home"><img style="width: 300px; height: 80px;" src="" alt="logo" ></a>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+</head>
+<body>
+<nav v-cloak id="app" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="Home"><img style="width: 300px; height: 80px;" src="" alt="logo"></a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="Booking">Booking</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="About">About</a>
-          </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Booking">Booking</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="About">About</a>
+            </li>
         </ul>
 
         <div class="" v-if="!here">
-          <button class="btn btn-outline-success my-2 my-sm-0"  onclick="window.location.href='/Login'"  type="submit" style="margin-right: 10px;">Login</button>
-          <button class="btn btn btn-secondary my-2 my-sm-0" onclick="window.location.href='/Register'"  type="submit">Register</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href='/Login'" type="submit"
+                    style="margin-right: 10px;">Login
+            </button>
+            <button class="btn btn btn-secondary my-2 my-sm-0" onclick="window.location.href='/Register'" type="submit">
+                Register
+            </button>
         </div>
         <div class="" v-else>
-          <a class="navbar-brand" href="Account"><span>{{user.first_name}} {{user.last_name}}</span><img style="width: 50px; height: 50px; border-radius: 50px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTjsd8co7FiLB5KxEFYZsRDYnlAhzQ8fnR1zmlUoW_ApTsRfj_5" alt="Avatar"></a>
+            <a class="navbar-brand" href="Account"><span>{{user.first_name}} {{user.last_name}}</span><img
+                    style="width: 50px; height: 50px; border-radius: 50px;"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTjsd8co7FiLB5KxEFYZsRDYnlAhzQ8fnR1zmlUoW_ApTsRfj_5"
+                    alt="Avatar"></a>
         </div>
-      </div>
-    </nav>
-
-    <div class="row" style="margin-top: 260px;">
-      <div class="col-md-3" ></div>
-      <div v-cloak id="Hotelitem" class="col-md-6" >
-        <div class="">
-          <span>{{hotel.name}}</span><br>
-          <span>{{hotel.adress}}</span><br>
-          <span>{{hotel.first_name}}</span>
-          <span>{{hotel.last_name}}</span><br>
-          <span>{{hotel.phone_number}}</span><br>
-          <span>{{hotel.email}}</span><br>
-          <button v-if="user.admin == true || user.manager == true"  class="btn btn-primary" name="button">Edit</button>
-          <div class="">
-            <h1>LIST OF ROOMS</h1>
-            {{rooms}}
-            <div class="form-check-label" v-for="room in rooms">
-              <input type="radio" id="room.id"
-                name="room.id" v-bind:value="room.id">
-              <label for="room.id">number:{{room.number}} - beds:{{room.beds}} - price:{{room.price_by_one_beds}} </label>
-           </div>
-          </div>
-          <div v-if="user.manager == true" class="">
-            <h1>ADD ROOM</h1>
-            <form action="addroomToHotel" method="post">
-              <input type="hidden" v-bind:value="1" class="form-control" id="inputFloor" name="inputFloor">
-              <div class="form-group">
-                <label for="inputNumberRoom">Room</label>
-                <input type="number" v-bind:min="rooms.length" class="form-control" id="inputNumberRoom" name="inputNumberRoom">
-              </div>
-              <div class="form-group">
-                <label for="inputNumberOfBeds">Beds in room</label>
-                <input type="number" min="1" max="10" class="form-control" id="inputNumberOfBeds" name="inputNumberOfBeds">
-              </div>
-              <div class="form-group">
-                <label for="inputPriceOfBeds">Price by one beds</label>
-                <input type="number" min="1" class="form-control" id="inputPriceOfBeds" name="inputPriceOfBeds">
-              </div>
-              <input type="hidden" v-bind:value="hotel.id" id="inputhotelid" name="inputhotelid">
-              <button type="submit" class="btn btn-primary">Add</button>
-            </form>
-          </div>
-        </div>
-      </div>
     </div>
+</nav>
 
-    <script src="./js/hotel.js"></script>
-  </body>
+<div class="row" style="margin-top: 260px;">
+    <div class="col-md-3"></div>
+    <div v-cloak id="Hotelitem" class="col-md-6">
+        <div class="">
+            <span>{{hotel.name}}</span><br>
+            <span>{{hotel.adress}}</span><br>
+            <span>{{hotel.first_name}}</span>
+            <span>{{hotel.last_name}}</span><br>
+            <span>{{hotel.phone_number}}</span><br>
+            <span>{{hotel.email}}</span><br>
+            <button v-if="user.admin == true || user.manager == true" class="btn btn-primary" name="button">Edit
+            </button>
+            <div class="">
+                <h1>LIST OF ROOMS</h1>
+                {{rooms}}
+                <div class="form-check-label" v-for="room in rooms">
+                    <input type="radio" id="room.id"
+                           name="room.id" v-bind:value="room.id">
+                    <label for="room.id">number:{{room.number}} - beds:{{room.beds}} -
+                        price:{{room.price_by_one_beds}} </label>
+                </div>
+            </div>
+            <div v-if="user.manager == true" class="">
+                <h1>ADD ROOM</h1>
+                <form action="addroomToHotel" method="post">
+                    <input type="hidden" v-bind:value="1" class="form-control" id="inputFloor" name="inputFloor">
+                    <div class="form-group">
+                        <label for="inputNumberRoom">Room</label>
+                        <input type="number" v-bind:min="rooms.length" class="form-control" id="inputNumberRoom"
+                               name="inputNumberRoom">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputNumberOfBeds">Beds in room</label>
+                        <input type="number" min="1" max="10" class="form-control" id="inputNumberOfBeds"
+                               name="inputNumberOfBeds">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPriceOfBeds">Price by one beds</label>
+                        <input type="number" min="1" class="form-control" id="inputPriceOfBeds" name="inputPriceOfBeds">
+                    </div>
+                    <input type="hidden" v-bind:value="hotel.id" id="inputhotelid" name="inputhotelid">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./js/hotel.js"></script>
+</body>
 </html>

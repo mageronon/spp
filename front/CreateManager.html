@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -13,33 +13,66 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
-    <script src="./js/register.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script type="text/javascript" src="./js/JQuery.js"></script>
+    <script src="./js/createManager.js"></script>
     <title></title>
+    <style type="text/css">
+        .hidden {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+    </style>
+
 </head>
 <body class="m-5">
-<form name="myFormRegister" action="/register" method="post" onsubmit="return validateForm()">
+<form id="formManagerRegister" name="formManagerRegister" class="formManagerRegister userExists" action="/createManager"
+      method="post" onsubmit="return validateForm()">
+    <div onchange="changeUserExistence()" class="form-group">
+        <p>Is user already exists?</p>
+        <select name="isUserExists" id="isUserExists">
+            <option selected value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+    </div>
     <div class="form-group">
         <label for="inputEmail1">Email address</label>
         <input type="email" class="form-control" name="inputEmail1" id="inputEmail1" aria-describedby="emailHelp">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group" id="client-info">
+        <label for="idOfClient"></label>
+        <input type="hidden" v-bind:value="clientId" id="idOfClient" name="idOfClient" >
     </div>
     <div class="form-group">
+        <p>Choose manager`s hotel</p>
+        <label for="allHotels"></label>
+        <select name="allHotels" id="allHotels">
+        </select>
+    </div>
+    <div class="form-group" id="hotel-info">
+        <label for="hotelId"></label>
+        <input type="text" hidden="hidden" class="form-control"  id="hotelId" name="hotelId" v-bind:value="hotelId">
+    </div>
+    <div class="form-group hidden">
         <label for="inputPassword1">Password</label>
         <input type="password" class="form-control" name="inputPassword1" id="inputPassword1">
     </div>
-    <div class="form-group">
+    <div class="form-group hidden">
         <label for="inputPassword2">Repeat Password</label>
         <input type="password" class="form-control" name="inputPassword2" id="inputPassword2">
     </div>
-    <div class="form-group">
+    <div class="form-group hidden">
         <label for="inputFirstName">First Name</label>
         <input type="text" class="form-control" name="inputFirstName" id="inputFirstName">
     </div>
-    <div class="form-group">
+    <div class="form-group hidden">
         <label for="inputLastName">Last Name</label>
         <input type="text" class="form-control" name="inputLastName" id="inputLastName">
     </div>
-    <div class="form-group">
+    <div class="form-group hidden">
         <label for="inputPhone">Phone</label>
         <input type="tel" value="+38-(067)-96-39-745" class="form-control" name="inputPhone" id="inputPhone">
     </div>
