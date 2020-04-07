@@ -14,6 +14,7 @@ window.onload = function () {
                     user: {}
                 }
             });
+            console.log(data);
             app = new Vue({
                 el: '#app',
                 data: {

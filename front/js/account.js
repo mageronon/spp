@@ -36,18 +36,9 @@ window.onload = function () {
                     }
                 });
             }
-<<<<<<< HEAD
-          });
-         }
        },
        error: function (err) {
 
        }
      });
-=======
-        },
-        error: function (err) {
-        }
-    });
->>>>>>> refs/remotes/origin/master
 }

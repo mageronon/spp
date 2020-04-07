@@ -95,7 +95,7 @@ exports.createManager = async function (req, res) {
         // req.session.user = result1.rows[0];
 
         await client.end();
-        res.redirect('Login');
+        res.redirect('AddHotel');
     } catch (err) {
         console.log(err.stack);
         await client.end();

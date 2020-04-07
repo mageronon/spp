@@ -1,6 +1,27 @@
 var appClient;
 var appHotel;
+var app;
+
 window.onload = function () {
+  $.ajax({
+      url: "/getUserInfo",
+      type: "GET",
+      success: function (data) {
+          console.log(data);
+          app = new Vue({
+              el: '#app',
+              data: {
+                  user: data,
+                  here: true
+              }
+          });
+
+     },
+     error: function (err) {
+
+     }
+   });
+
     $.ajax({
         url: "/getAllHotels",
         type: "GET",
@@ -21,7 +42,7 @@ function validateForm() {
         alert("Email must be filled out");
         return false;
     }
-    if (document.forms["formManagerRegister"]["allHotels"].value == "") {
+  /*  if (document.forms["formManagerRegister"]["allHotels"].value == "") {
         alert("Hotel must be selected");
         return false;
     } else {
@@ -30,7 +51,7 @@ function validateForm() {
                 console.log(document.forms["formManagerRegister"]["hotelId"].value);
             }
         );
-    }
+    }*/
 
     if ($('.formManagerRegister').hasClass('userNotExists')) {
         if (document.forms["formManagerRegister"]["inputPassword1"].value == "") {

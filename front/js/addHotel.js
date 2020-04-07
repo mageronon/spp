@@ -1,4 +1,5 @@
 var appHotel;
+var app;
 
 function validateForm() {
     if (document.forms["myFormAddHotel"]["inputHotelName"].value == "") {
@@ -16,6 +17,25 @@ function validateForm() {
 }
 
 window.onload = function () {
+  $.ajax({
+      url: "/getUserInfo",
+      type: "GET",
+      success: function (data) {
+          console.log(data);
+          app = new Vue({
+              el: '#app',
+              data: {
+                  user: data,
+                  here: true
+              }
+          });
+
+     },
+     error: function (err) {
+
+     }
+   });
+   
     $.ajax({
         url: "/getHotelInfoForAdmin",
         type: "GET",

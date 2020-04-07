@@ -18,6 +18,7 @@ exports.getHotelInfo = function (req, res) {
             console.log(err1.stack);
         } else {
             client.end();
+            console.log(results1.rows);
             res.status(200).json(results1.rows);
         }
     });
@@ -47,6 +48,8 @@ exports.getHotel = function (req, res) {
                             console.log(err.stack);
                         } else {
                             client.end();
+
+                            console.log(results1.rows[0]);
                             res.status(200).json({
                                 hotel: results1.rows[0],
                                 rooms: results.rows
