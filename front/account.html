@@ -68,7 +68,7 @@
         </div>
         <div class="" v-if="user.manager === true">
             <span>i am manager</span><br>
-            <a v-if="hotel.hotel" v-bind:href="'Hotel?hotelId=' + hotel.hotel.id" class="btn btn-outline-primary">Go to
+            <a v-if="hotel.hotel" v-bind:href="'Hotel?hotelId=' + hotel.hotel.id_hotel" class="btn btn-outline-primary">Go to
                 the Hotel "{{hotel.hotel.name}}"</a>
         </div>
         <hr>

@@ -124,6 +124,7 @@ exports.addroomToHotel = async function (req, res) {
     });
 
     try {
+        console.log(req.body.inputhotelid);
         const text = 'INSERT INTO public.\"Room\"(floor, number, price_by_one_beds, beds, id_hotel) VALUES($1, $2, $3, $4, $5) RETURNING *'
         const values = [req.body.inputFloor, req.body.inputNumberRoom, req.body.inputPriceOfBeds, req.body.inputNumberOfBeds, req.body.inputhotelid]
         const results = await client.query(text, values)
